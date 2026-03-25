@@ -4,6 +4,11 @@ import laravel from "laravel-vite-plugin";
 import { defineConfig } from "vite";
 
 export default defineConfig({
+    server: {
+        watch: {
+            usePolling: true
+        }
+    },
     plugins: [
         laravel({
             input: [
@@ -22,6 +27,7 @@ export default defineConfig({
                 "resources/**/*.ts",
                 "resources/**/*.ts",
                 "resources/**/*.css",
+                "resources/**/*.vue",
                 "routes/**/*.php"
             ]
         }),
