@@ -1,0 +1,43 @@
+// https://aka.ms/devcontainer.json
+{
+    "name": "filament-template",
+    "dockerComposeFile": ["../docker-compose.yml"],
+    "service": "laravel.test",
+    "workspaceFolder": "/var/www/html",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "mehedidracula.php-namespace-resolver",
+                "bmewburn.vscode-intelephense-client",
+                "xdebug.php-debug",
+                "junstyle.php-cs-fixer",
+                "onecentlin.laravel-extension-pack",
+                "georgykurian.laravel-ide-helper",
+                "eamodio.gitlens",
+                "visualstudioexptteam.vscodeintellicode",
+                "esbenp.prettier-vscode",
+                "wayou.vscode-todo-highlight",
+                "vscode-icons-team.vscode-icons",
+                "csstools.postcss",
+                "jaguadoromero.vscode-php-create-class",
+                "formulahendry.auto-rename-tag",
+                "formulahendry.auto-close-tag",
+                "entexa.tall-stack",
+                "open-southeners.laravel-pint",
+                "sperovita.alpinejs-syntax-highlight",
+                "kamikillerto.vscode-colorize"
+            ],
+            "settings": {}
+        }
+    },
+    "remoteUser": "sail",
+    "initializeCommand": "docker run --rm -u 1000:1000 -v .:/var/www/html -w /var/www/html laravelsail/php83-composer:latest composer install --ignore-platform-reqs",
+    "postCreateCommand": "chown -R 1000:1000 /var/www/html 2>/dev/null || true",
+    "postStartCommand": "composer install && npm install && php artisan filament:assets && php artisan migrate",
+    // "forwardPorts": [5173]
+    // "runServices": [],
+    // "shutdownAction": "none",
+    "mounts": [
+        "source=${localEnv:HOME}/.ssh,target=/home/sail/.ssh,type=bind,consistency=cached"
+    ]
+}

@@ -1,0 +1,19 @@
+---
+alwaysApply: true
+---
+
+# Devcontainer Environment
+
+This project uses a devcontainer (`.devcontainer/devcontainer.json`). Cursor is attached **inside** the Docker container, so `vendor/bin/sail` is not available.
+
+## Command Execution
+
+Run all commands directly without the `vendor/bin/sail` prefix:
+
+- Artisan: `php artisan migrate`
+- Composer: `composer install`
+- Node/NPM: `npm run dev`
+- Pint: `./vendor/bin/pint --dirty --format agent`
+- Tests: `php artisan test --compact`
+
+This overrides the Sail rules from Laravel Boost which assume commands run from the host machine.
