@@ -8,6 +8,6 @@ defineProps<{ message: string }>();
 <template>
     <Layout>
         <Head title="Welcome" />
-        <h1 class="text-red-500">TEST aaaa 123</h1>
+        <h1 class="text-red-500">{{ message }}</h1>
     </Layout>
 </template>
