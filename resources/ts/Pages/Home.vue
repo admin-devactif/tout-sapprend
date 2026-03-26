@@ -10,7 +10,7 @@ const { t } = useI18n();
 
 <template>
     <Layout>
-        <Head title="Welcome" />
+        <Head :title="t('page_titles.home')" />
         <h1 class="text-red-500">{{ t("welcome") }}</h1>
         <FontAwesomeIcon :icon="faFacebookF" />
     </Layout>
