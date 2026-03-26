@@ -14,15 +14,12 @@ type NavigationLink = {
 
 const { t } = useI18n();
 
-const primaryLinks: NavigationLink[] = [
+const links: NavigationLink[] = [
     { href: "/", label: t("navigation.home") },
     { href: "/orthopedagogie", label: t("navigation.orthopedagogie") },
     { href: "/intervention", label: t("navigation.intervention") },
     { href: "/stimulation", label: t("navigation.stimulation") },
-    { href: "/cpe", label: t("navigation.cpe") }
-];
-
-const secondaryLinks: NavigationLink[] = [
+    { href: "/cpe", label: t("navigation.cpe") },
     { href: "/contact", label: t("navigation.contact") },
     { href: "/appointment", label: t("navigation.appointment") }
 ];
@@ -36,8 +33,8 @@ const secondaryLinks: NavigationLink[] = [
                 :style="{ backgroundImage: `url(${headerBackground})` }"></div>
             <div class="absolute inset-0 bg-white/45"></div>
 
-            <div class="relative mx-auto max-w-7xl px-2 py-1 sm:px-4 lg:px-6">
-                <div class="navbar justify-between px-0 lg:hidden">
+            <div class="relative mx-auto px-2 py-1 sm:px-4 lg:px-6">
+                <div class="navbar justify-between px-0 min-[1833px]:hidden">
                     <Link
                         href="/"
                         class="btn btn-ghost border-0 h-auto gap-3 px-0 normal-case bg-transparent shadow-none">
@@ -61,10 +58,7 @@ const secondaryLinks: NavigationLink[] = [
                             <ul
                                 class="menu w-full items-center gap-3 rounded-box bg-transparent p-0">
                                 <li
-                                    v-for="(link, index) in [
-                                        ...primaryLinks,
-                                        ...secondaryLinks
-                                    ]"
+                                    v-for="(link, index) in links"
                                     :key="index"
                                     class="flex w-full justify-center">
                                     <Link
@@ -94,65 +88,44 @@ const secondaryLinks: NavigationLink[] = [
                     </div>
                 </div>
 
-                <div class="hidden items-center gap-6 py-1 lg:flex">
-                    <Link href="/" class="flex-none">
-                        <img
-                            :src="logo"
-                            alt="Tout s'apprend"
-                            class="size-28 rounded-full p-1" />
-                    </Link>
+                <div class="hidden grid-cols-3 items-center gap-4 py-1 min-[1833px]:grid">
+                    <div class="flex justify-start">
+                        <Link href="/" class="flex-none">
+                            <img
+                                :src="logo"
+                                alt="Tout s'apprend"
+                                class="size-28 rounded-full p-1" />
+                        </Link>
+                    </div>
 
-                    <div class="flex flex-1 items-end gap-4">
-                        <div class="flex-1">
-                            <div
-                                class="menu menu-horizontal w-full gap-3 bg-transparent p-0">
-                                <div
-                                    v-for="(link, index) in primaryLinks"
-                                    :key="index"
-                                    class="flex flex-1">
-                                    <Link
-                                        :href="link.href"
-                                        class="btn btn-outline min-h-12 w-full rounded-full border-orange-300 bg-white/70 px-4 py-3 text-center text-md uppercase font-bold tracking-widest text-orange-400 shadow-none hover:bg-orange-50">
-                                        <span
-                                            class="leading-tight whitespace-normal">
-                                            {{ link.label }}
-                                        </span>
-                                    </Link>
-                                </div>
-                            </div>
+                    <div class="flex justify-center">
+                        <ul
+                            class="menu menu-horizontal flex-nowrap items-center justify-center gap-2 bg-transparent p-0">
+                            <li v-for="(link, index) in links" :key="index">
+                                <Link
+                                    :href="link.href"
+                                    class="btn btn-outline min-h-10 rounded-full border-orange-300 bg-white/70 px-3 py-2 text-center text-sm uppercase font-bold tracking-wide text-orange-400 shadow-none hover:bg-orange-50">
+                                    <span class="leading-tight whitespace-nowrap">
+                                        {{ link.label }}
+                                    </span>
+                                </Link>
+                            </li>
+                        </ul>
+                    </div>
 
-                            <div
-                                class="menu menu-horizontal mt-3 w-full gap-3 bg-transparent p-0">
-                                <div
-                                    v-for="(link, index) in secondaryLinks"
-                                    :key="index"
-                                    class="flex flex-1">
-                                    <Link
-                                        :href="link.href"
-                                        class="btn btn-outline min-h-12 w-full rounded-full border-orange-300 bg-white/70 px-4 py-3 text-center text-md uppercase font-bold tracking-widest text-orange-400 shadow-none hover:bg-orange-50">
-                                        <span
-                                            class="leading-tight whitespace-normal">
-                                            {{ link.label }}
-                                        </span>
-                                    </Link>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="flex flex-col justify-center gap-2 self-center -translate-y-0 pl-3 text-md text-stone-500">
-                            <a
-                                href="mailto:info@serviceseducatifs.ca"
-                                class="link link-hover inline-flex items-center gap-2 no-underline hover:text-orange-400">
-                                <FontAwesomeIcon :icon="faEnvelope" />
-                                <span>info@serviceseducatifs.ca</span>
-                            </a>
-                            <a
-                                href="tel:4508814432"
-                                class="link link-hover inline-flex items-center gap-2 no-underline hover:text-orange-400">
-                                <FontAwesomeIcon :icon="faPhone" />
-                                <span>450-881-4432</span>
-                            </a>
-                        </div>
+                    <div class="flex flex-col items-end justify-center gap-2 text-md text-stone-500">
+                        <a
+                            href="mailto:info@serviceseducatifs.ca"
+                            class="link link-hover inline-flex items-center justify-end gap-2 no-underline hover:text-orange-400">
+                            <FontAwesomeIcon :icon="faEnvelope" />
+                            <span>info@serviceseducatifs.ca</span>
+                        </a>
+                        <a
+                            href="tel:4508814432"
+                            class="link link-hover inline-flex items-center justify-end gap-2 no-underline hover:text-orange-400">
+                            <FontAwesomeIcon :icon="faPhone" />
+                            <span>450-881-4432</span>
+                        </a>
                     </div>
                 </div>
             </div>
