@@ -1,7 +1,9 @@
 <script setup lang="ts">
+import { faFacebookF } from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { Head } from "@inertiajs/vue3";
-import Layout from "./Layout.vue";
 import { useI18n } from "vue-i18n";
+import Layout from "./Layout.vue";
 
 const { t } = useI18n();
 </script>
@@ -10,5 +12,6 @@ const { t } = useI18n();
     <Layout>
         <Head title="Welcome" />
         <h1 class="text-red-500">{{ t("welcome") }}</h1>
+        <FontAwesomeIcon :icon="faFacebookF" />
     </Layout>
 </template>
