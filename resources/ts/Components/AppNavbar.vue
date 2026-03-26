@@ -9,22 +9,22 @@ import logo from "../../assets/shared/LOGO_toutsapprend.png";
 
 type NavigationLink = {
     href: string;
-    labelKey: string;
+    label: string;
 };
 
-const { t } = useI18n({ useScope: "global" });
+const { t } = useI18n();
 
 const primaryLinks: NavigationLink[] = [
-    { href: "/", labelKey: "navigation.home" },
-    { href: "/orthopedagogie", labelKey: "navigation.orthopedagogie" },
-    { href: "/intervention", labelKey: "navigation.intervention" },
-    { href: "/stimulation", labelKey: "navigation.stimulation" },
-    { href: "/cpe", labelKey: "navigation.cpe" }
+    { href: "/", label: t("navigation.home") },
+    { href: "/orthopedagogie", label: t("navigation.orthopedagogie") },
+    { href: "/intervention", label: t("navigation.intervention") },
+    { href: "/stimulation", label: t("navigation.stimulation") },
+    { href: "/cpe", label: t("navigation.cpe") }
 ];
 
 const secondaryLinks: NavigationLink[] = [
-    { href: "/contact", labelKey: "navigation.contact" },
-    { href: "/appointment", labelKey: "navigation.appointment" }
+    { href: "/contact", label: t("navigation.contact") },
+    { href: "/appointment", label: t("navigation.appointment") }
 ];
 </script>
 
@@ -58,20 +58,25 @@ const secondaryLinks: NavigationLink[] = [
                         <div
                             tabindex="0"
                             class="dropdown-content right-0 z-50 mt-3 w-80 max-w-[calc(100vw-1rem)] rounded-3xl border border-orange-100 bg-white/95 p-4 shadow-lg backdrop-blur-sm">
-                            <ul class="menu w-full items-center gap-3 rounded-box bg-transparent p-0">
+                            <ul
+                                class="menu w-full items-center gap-3 rounded-box bg-transparent p-0">
                                 <li
-                                    v-for="link in [...primaryLinks, ...secondaryLinks]"
-                                    :key="`mobile-${link.labelKey}`"
+                                    v-for="(link, index) in [
+                                        ...primaryLinks,
+                                        ...secondaryLinks
+                                    ]"
+                                    :key="index"
                                     class="flex w-full justify-center">
                                     <Link
                                         :href="link.href"
-                                        class="btn btn-outline min-h-12 w-full justify-center rounded-full border-orange-300 bg-white px-4 py-3 text-center text-sm font-light tracking-wide text-orange-400 shadow-none hover:bg-orange-50">
-                                        {{ t(link.labelKey) }}
+                                        class="btn btn-outline min-h-12 w-full justify-center rounded-full border-orange-300 bg-white px-4 py-3 text-center text-base uppercase tracking-wide text-orange-400 shadow-none hover:bg-orange-50">
+                                        {{ link.label }}
                                     </Link>
                                 </li>
                             </ul>
 
-                            <div class="mt-4 flex flex-col items-center gap-2 text-sm text-stone-500">
+                            <div
+                                class="mt-4 flex flex-col items-center gap-2 text-sm text-stone-500">
                                 <a
                                     href="mailto:info@serviceseducatifs.ca"
                                     class="link link-hover inline-flex items-center gap-2 no-underline hover:text-orange-400">
@@ -98,31 +103,35 @@ const secondaryLinks: NavigationLink[] = [
                     </Link>
 
                     <div class="flex-1">
-                        <div class="menu menu-horizontal w-full gap-3 bg-transparent p-0">
+                        <div
+                            class="menu menu-horizontal w-full gap-3 bg-transparent p-0">
                             <div
-                                v-for="link in primaryLinks"
-                                :key="link.labelKey"
+                                v-for="(link, index) in primaryLinks"
+                                :key="index"
                                 class="flex flex-1">
                                 <Link
                                     :href="link.href"
-                                    class="btn btn-outline min-h-12 w-full rounded-full border-orange-300 bg-white/70 px-4 py-3 text-center text-xs font-light tracking-widest text-orange-400 shadow-none hover:bg-orange-50">
-                                    <span class="leading-tight whitespace-normal">
-                                        {{ t(link.labelKey) }}
+                                    class="btn btn-outline min-h-12 w-full rounded-full border-orange-300 bg-white/70 px-4 py-3 text-center text-md uppercase font-bold tracking-widest text-orange-400 shadow-none hover:bg-orange-50">
+                                    <span
+                                        class="leading-tight whitespace-normal">
+                                        {{ link.label }}
                                     </span>
                                 </Link>
                             </div>
                         </div>
 
-                        <div class="menu menu-horizontal mt-3 w-full gap-3 bg-transparent p-0">
+                        <div
+                            class="menu menu-horizontal mt-3 w-full gap-3 bg-transparent p-0">
                             <div
-                                v-for="link in secondaryLinks"
-                                :key="link.labelKey"
+                                v-for="(link, index) in secondaryLinks"
+                                :key="index"
                                 class="flex flex-1">
                                 <Link
                                     :href="link.href"
-                                    class="btn btn-outline min-h-12 w-full rounded-full border-orange-300 bg-white/70 px-4 py-3 text-center text-xs font-light tracking-widest text-orange-400 shadow-none hover:bg-orange-50">
-                                    <span class="leading-tight whitespace-normal">
-                                        {{ t(link.labelKey) }}
+                                    class="btn btn-outline min-h-12 w-full rounded-full border-orange-300 bg-white/70 px-4 py-3 text-center text-md uppercase font-bold tracking-widest text-orange-400 shadow-none hover:bg-orange-50">
+                                    <span
+                                        class="leading-tight whitespace-normal">
+                                        {{ link.label }}
                                     </span>
                                 </Link>
                             </div>

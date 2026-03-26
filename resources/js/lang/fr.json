@@ -3,13 +3,13 @@
     "welcome": "Bonjour",
     "home": "Accueil",
     "navigation": {
-        "home": "ACCUEIL",
-        "orthopedagogie": "ORTHOPÉDAGOGIE",
-        "intervention": "INTERVENTION ÉDUCATIVE",
-        "stimulation": "STIMULATION DU LANGAGE",
-        "cpe": "CPE ET MILIEUX DE GARDE",
-        "contact": "NOUS JOINDRE",
-        "appointment": "PRENDRE RENDEZ-VOUS"
+        "home": "Accueil",
+        "orthopedagogie": "Orthopédagogie",
+        "intervention": "Intervention éducative",
+        "stimulation": "Stimulation du langage",
+        "cpe": "CPE et milieux de garde",
+        "contact": "Nous joindre",
+        "appointment": "Prendre rendez-vous"
     },
     "page_titles": {
         "home": "Tout s'apprend - Accueil",
