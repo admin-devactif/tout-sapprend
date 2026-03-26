@@ -3,14 +3,12 @@ import { createApp, h } from "vue";
 import { createI18n } from "vue-i18n";
 
 import fr from "../js/lang/fr.json";
-import en from "../js/lang/en.json";
 
 const i18n = createI18n({
     locale: "fr",
-    fallbackLocale: "en",
+    fallbackLocale: "fr",
     messages: {
-        fr,
-        en
+        fr
     }
 });
 
