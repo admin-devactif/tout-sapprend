@@ -5,6 +5,7 @@ import { createI18n } from "vue-i18n";
 import fr from "../js/lang/fr.json";
 
 const i18n = createI18n({
+    globalInjection: true,
     locale: "fr",
     fallbackLocale: "fr",
     messages: {
