@@ -102,39 +102,56 @@ const secondaryLinks: NavigationLink[] = [
                             class="size-28 rounded-full p-1" />
                     </Link>
 
-                    <div class="flex-1">
-                        <div
-                            class="menu menu-horizontal w-full gap-3 bg-transparent p-0">
+                    <div class="flex flex-1 items-end gap-4">
+                        <div class="flex-1">
                             <div
-                                v-for="(link, index) in primaryLinks"
-                                :key="index"
-                                class="flex flex-1">
-                                <Link
-                                    :href="link.href"
-                                    class="btn btn-outline min-h-12 w-full rounded-full border-orange-300 bg-white/70 px-4 py-3 text-center text-md uppercase font-bold tracking-widest text-orange-400 shadow-none hover:bg-orange-50">
-                                    <span
-                                        class="leading-tight whitespace-normal">
-                                        {{ link.label }}
-                                    </span>
-                                </Link>
+                                class="menu menu-horizontal w-full gap-3 bg-transparent p-0">
+                                <div
+                                    v-for="(link, index) in primaryLinks"
+                                    :key="index"
+                                    class="flex flex-1">
+                                    <Link
+                                        :href="link.href"
+                                        class="btn btn-outline min-h-12 w-full rounded-full border-orange-300 bg-white/70 px-4 py-3 text-center text-md uppercase font-bold tracking-widest text-orange-400 shadow-none hover:bg-orange-50">
+                                        <span
+                                            class="leading-tight whitespace-normal">
+                                            {{ link.label }}
+                                        </span>
+                                    </Link>
+                                </div>
+                            </div>
+
+                            <div
+                                class="menu menu-horizontal mt-3 w-full gap-3 bg-transparent p-0">
+                                <div
+                                    v-for="(link, index) in secondaryLinks"
+                                    :key="index"
+                                    class="flex flex-1">
+                                    <Link
+                                        :href="link.href"
+                                        class="btn btn-outline min-h-12 w-full rounded-full border-orange-300 bg-white/70 px-4 py-3 text-center text-md uppercase font-bold tracking-widest text-orange-400 shadow-none hover:bg-orange-50">
+                                        <span
+                                            class="leading-tight whitespace-normal">
+                                            {{ link.label }}
+                                        </span>
+                                    </Link>
+                                </div>
                             </div>
                         </div>
 
-                        <div
-                            class="menu menu-horizontal mt-3 w-full gap-3 bg-transparent p-0">
-                            <div
-                                v-for="(link, index) in secondaryLinks"
-                                :key="index"
-                                class="flex flex-1">
-                                <Link
-                                    :href="link.href"
-                                    class="btn btn-outline min-h-12 w-full rounded-full border-orange-300 bg-white/70 px-4 py-3 text-center text-md uppercase font-bold tracking-widest text-orange-400 shadow-none hover:bg-orange-50">
-                                    <span
-                                        class="leading-tight whitespace-normal">
-                                        {{ link.label }}
-                                    </span>
-                                </Link>
-                            </div>
+                        <div class="flex flex-col justify-center gap-2 self-center -translate-y-0 pl-3 text-md text-stone-500">
+                            <a
+                                href="mailto:info@serviceseducatifs.ca"
+                                class="link link-hover inline-flex items-center gap-2 no-underline hover:text-orange-400">
+                                <FontAwesomeIcon :icon="faEnvelope" />
+                                <span>info@serviceseducatifs.ca</span>
+                            </a>
+                            <a
+                                href="tel:4508814432"
+                                class="link link-hover inline-flex items-center gap-2 no-underline hover:text-orange-400">
+                                <FontAwesomeIcon :icon="faPhone" />
+                                <span>450-881-4432</span>
+                            </a>
                         </div>
                     </div>
                 </div>
