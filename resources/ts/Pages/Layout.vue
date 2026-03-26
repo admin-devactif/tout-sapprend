@@ -11,7 +11,7 @@ type NavigationLink = {
 };
 
 type SocialLink = NavigationLink & {
-    path: string;
+    iconClass: string;
 };
 
 const primaryLinks: NavigationLink[] = [
@@ -33,17 +33,17 @@ const socialLinks: SocialLink[] = [
     {
         href: "https://www.facebook.com/toutsapprend.serviceseducatifs",
         label: "Facebook",
-        path: "M18 2.01h-3.27c-3.6 0-5.93 2.38-5.93 6.04v2.78H5.5v4.43h3.3V22h4.9v-6.74h3.95l.63-4.43H13.7V8.5c0-1.28.36-2.15 2.19-2.15H18V2.01z"
+        iconClass: "fa-brands fa-facebook-f"
     },
     {
         href: "https://www.instagram.com/tout.sapprend/",
         label: "Instagram",
-        path: "M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2zm0 1.8A3.7 3.7 0 0 0 3.8 7.5v9a3.7 3.7 0 0 0 3.7 3.7h9a3.7 3.7 0 0 0 3.7-3.7v-9a3.7 3.7 0 0 0-3.7-3.7h-9zm9.7 2.1a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 1.8A3.2 3.2 0 1 0 12 15.2 3.2 3.2 0 0 0 12 8.8z"
+        iconClass: "fa-brands fa-instagram"
     },
     {
         href: "https://www.linkedin.com/company/tout-sapprend/",
         label: "LinkedIn",
-        path: "M4.98 3.5A2.48 2.48 0 1 1 5 8.46a2.48 2.48 0 0 1-.02-4.96zM2.75 9.25h4.5V21h-4.5V9.25zM10.25 9.25h4.31v1.6h.06c.6-1.14 2.06-2.35 4.24-2.35 4.53 0 5.37 2.98 5.37 6.85V21h-4.5v-5.02c0-1.2-.02-2.75-1.67-2.75-1.68 0-1.94 1.31-1.94 2.66V21h-4.5V9.25z"
+        iconClass: "fa-brands fa-linkedin-in"
     }
 ];
 </script>
@@ -203,9 +203,7 @@ const socialLinks: SocialLink[] = [
                         rel="noopener noreferrer"
                         class="text-[var(--brand-ink)] transition hover:text-[var(--brand-accent)]"
                         :aria-label="link.label">
-                        <svg viewBox="0 0 24 24" class="h-6 w-6 fill-current">
-                            <path :d="link.path" />
-                        </svg>
+                        <i :class="[link.iconClass, 'text-[1.5rem]']" aria-hidden="true"></i>
                     </a>
                 </div>
 
