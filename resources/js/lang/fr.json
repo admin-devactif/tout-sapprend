@@ -1,4 +1,23 @@
 ﻿{
+    "app_name": "Tout s'apprend",
     "welcome": "Bonjour",
-    "home": "Accueil"
+    "home": "Accueil",
+    "navigation": {
+        "home": "Accueil",
+        "orthopedagogie": "Orthopédagogie",
+        "intervention": "Intervention éducative",
+        "stimulation": "Stimulation du langage",
+        "cpe": "CPE et milieux de garde",
+        "contact": "Nous joindre",
+        "appointment": "Prendre rendez-vous"
+    },
+    "page_titles": {
+        "home": "Tout s'apprend - Accueil",
+        "orthopedagogie": "Tout s'apprend - Orthopédagogie",
+        "intervention": "Tout s'apprend - Intervention Éducative",
+        "stimulation": "Tout s'apprend - Stimulation du Langage",
+        "cpe": "Tout s'apprend - CPE et Milieux de Garde",
+        "contact": "Tout s'apprend - Nous Joindre",
+        "appointment": "Tout s'apprend - Prendre Rendez-vous"
+    }
 }

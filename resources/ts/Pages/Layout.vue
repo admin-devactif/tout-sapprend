@@ -1,13 +1,13 @@
-<script setup>
-import { Link } from "@inertiajs/vue3";
+<script setup lang="ts">
+import AppNavbar from "../Components/AppNavbar.vue";
 </script>
 
 <template>
-    <main>
+    <main class="min-h-screen bg-base-100">
         <header>
-            <Link href="/">Home</Link>
+            <AppNavbar />
         </header>
-        <article>
+        <article class="container mx-auto p-4">
             <slot />
         </article>
     </main>
