@@ -2,6 +2,15 @@
     "app_name": "Tout s'apprend",
     "welcome": "Bonjour",
     "home": "Accueil",
+    "navigation": {
+        "home": "ACCUEIL",
+        "orthopedagogie": "ORTHOPÉDAGOGIE",
+        "intervention": "INTERVENTION ÉDUCATIVE",
+        "stimulation": "STIMULATION DU LANGAGE",
+        "cpe": "CPE ET MILIEUX DE GARDE",
+        "contact": "NOUS JOINDRE",
+        "appointment": "PRENDRE RENDEZ-VOUS"
+    },
     "page_titles": {
         "home": "Tout s'apprend - Accueil",
         "orthopedagogie": "Tout s'apprend - Orthopédagogie",
