@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { usePage } from "@inertiajs/vue3";
 import { computed } from "vue";
+import { useI18n } from "vue-i18n";
 
 type TeamMember = {
     id: number;
@@ -15,6 +16,7 @@ type PageProps = {
 };
 
 const page = usePage<PageProps>();
+const { t } = useI18n();
 
 const teamMembers = computed(() => page.props.teamMembers ?? []);
 </script>
@@ -22,7 +24,9 @@ const teamMembers = computed(() => page.props.teamMembers ?? []);
 <template>
     <section class="space-y-8">
         <div class="max-w-2xl space-y-3">
-            <h2 class="text-3xl font-semibold text-base-content">Notre Équipe</h2>
+            <h2 class="text-3xl font-semibold text-base-content">
+                {{ t("team.heading") }}
+            </h2>
         </div>
 
         <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
@@ -43,7 +47,7 @@ const teamMembers = computed(() => page.props.teamMembers ?? []);
                         <div
                             class="flex h-80 w-full items-center justify-center text-sm text-base-content/60"
                         >
-                            Aucune photo
+                            {{ t("team.no_photo") }}
                         </div>
                     </div>
                 </figure>
@@ -61,7 +65,7 @@ const teamMembers = computed(() => page.props.teamMembers ?? []);
 
                     <div class="card-actions justify-start">
                         <button class="btn btn-link px-0 no-underline" type="button">
-                            Lire la suite
+                            {{ t("team.read_more") }}
                         </button>
                     </div>
                 </div>

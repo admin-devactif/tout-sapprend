@@ -19,11 +19,12 @@ class TeamMemberForm
             ->components([
                 FileUpload::make(TeamMember::PHOTO_PATH)
                     ->label('Photo')
-                    ->image()
                     ->imageEditor()
                     ->panelAspectRatio('4:5')
                     ->imagePreviewHeight('240')
                     ->helperText('Utilise idealement une photo portrait. Le cadrage est prevu pour un format 4:5.')
+                    ->disk('s3')
+                    ->visibility('public')
                     ->directory('team-members'),
                 Group::make([
                     TextInput::make(TeamMember::NAME)
@@ -36,7 +37,6 @@ class TeamMemberForm
                         ->maxLength(50),
                     Textarea::make(TeamMember::DESCRIPTION)
                         ->label('Description')
-                        ->required()
                         ->rows(6),
                 ])
                     ->columns(1),

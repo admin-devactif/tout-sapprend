@@ -24,6 +24,8 @@ class TeamMembersTable
             ->columns([
                 ImageColumn::make(TeamMember::PHOTO_PATH)
                     ->label('Photo')
+                    ->disk('s3')
+                    ->visibility('public')
                     ->circular()
                     ->imageSize(48),
                 TextColumn::make(TeamMember::NAME)
@@ -50,9 +52,7 @@ class TeamMembersTable
                 DeleteAction::make(),
             ])
             ->toolbarActions([
-                BulkActionGroup::make([
-                    DeleteBulkAction::make(),
-                ]),
+                DeleteBulkAction::make(),
             ]);
     }
 }

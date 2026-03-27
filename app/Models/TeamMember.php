@@ -23,6 +23,8 @@ use Illuminate\Support\Facades\Storage;
  */
 class TeamMember extends BaseModel
 {
+    private const STORAGE_DISK = 's3';
+
     public const NAME = 'name';
 
     public const ROLE = 'role';
@@ -46,7 +48,7 @@ class TeamMember extends BaseModel
                 return;
             }
 
-            Storage::disk('public')->delete($originalPhotoPath);
+            Storage::disk(self::STORAGE_DISK)->delete($originalPhotoPath);
         });
 
         static::deleted(function (self $teamMember): void {
@@ -54,7 +56,7 @@ class TeamMember extends BaseModel
                 return;
             }
 
-            Storage::disk('public')->delete($teamMember->photo_path);
+            Storage::disk(self::STORAGE_DISK)->delete($teamMember->photo_path);
         });
     }
 
@@ -64,6 +66,6 @@ class TeamMember extends BaseModel
             return null;
         }
 
-        return Storage::disk('public')->url($this->photo_path);
+        return Storage::disk(self::STORAGE_DISK)->url($this->photo_path);
     }
 }
