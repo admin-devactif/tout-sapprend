@@ -74,6 +74,20 @@ services:
                 - local
             retries: 3
             timeout: 5s
+    minio-setup:
+        image: "minio/mc:latest"
+        depends_on:
+            minio:
+                condition: service_healthy
+        networks:
+            - sail
+        restart: "no"
+        entrypoint: >
+            /bin/sh -c "
+            mc alias set localminio http://minio:9000 sail password &&
+            mc mb --ignore-existing localminio/local &&
+            mc anonymous set download localminio/local
+            "
 networks:
     sail:
         driver: bridge
